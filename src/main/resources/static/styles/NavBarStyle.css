@@ -1,0 +1,32 @@
+body {
+    padding-bottom: 70px;
+    background-color: #121212;
+  }
+  .nav-colour{
+    background-color: #121212;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .navbar-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .settings{
+    position: absolute;
+    left: 15px;
+  }
+  .cart{
+    position:absolute;
+    right: 15px;
+  }
+  .navbar-custom {
+    height: 45px;
+  }
+  .upload-group{
+    position: absolute;
+    left: 50%;
+  }
+  .upload-inner-group{
+    position:relative;
+    right:50%;
+  }

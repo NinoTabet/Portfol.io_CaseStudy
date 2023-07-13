@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capstone Project</title>
+    <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <link href="/styles/NavBarStyle.css" rel="stylesheet"/>
+  </head>
+  <body>
+  <nav class="navbar navbar-custom navbar-expand navbar-dark nav-colour navbar-fixed-bottom"  style="z-index: 1000;">
+    <div class="container">
+      <ul class="navbar-nav settings">
+        <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link me-1" th:href="@{/profile}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Direct Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Notifications</a>
+        </li>
+        </li>
+      </ul>
+      <div class="upload-group">
+        <ul class="navbar-nav upload-inner-group">
+          <li class="nav-item">
+            <a class="nav-link me-1" th:href="@{/forYou}">FYP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1 active">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" href="#">Explore</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav cart">
+        <li class="nav-item">
+          <form id="logoutForm" method="post" action="/logout">
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+          </form>
+          <a class="nav-link me-1" href="#" onclick="document.getElementById('logoutForm').submit();return false;">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Cart</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <div th:if="${message}" class="alert alert-danger" th:text="${message}"></div>
+    <div  class="container mt-5 feed-container">
+      <form th:action="@{/api/posts}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="photo" class="form-label text-white">Photo</label>
+          <input class="form-control" id="photo" type="file" th:name="photo">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label text-white">Description</label>
+          <textarea class="form-control" id="description" rows="3" th:name="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </body> 
+</html>

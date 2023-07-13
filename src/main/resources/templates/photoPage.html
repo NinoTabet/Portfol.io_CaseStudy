@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capstone Project</title>
+    <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <link href="/styles/PhotoPage.css" rel="stylesheet"/>
+    <link href="/styles/NavBarStyle.css" rel="stylesheet"/>
+  </head>
+  <body>
+  <nav class="navbar navbar-custom navbar-expand navbar-dark nav-colour navbar-fixed-bottom"  style="z-index: 1000;">
+    <div class="container">
+      <ul class="navbar-nav settings">
+        <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link me-1" th:href="@{/profile}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Direct Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Notifications</a>
+        </li>
+        </li>
+      </ul>
+      <div class="upload-group">
+        <ul class="navbar-nav upload-inner-group">
+          <li class="nav-item">
+            <a class="nav-link me-1" th:href="@{/forYou}">FYP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" th:href="@{/upload}">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" href="#">Explore</a>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav cart">
+        <li class="nav-item">
+          <form id="logoutForm" method="post" action="/logout">
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+          </form>
+          <a class="nav-link me-1" href="#" onclick="document.getElementById('logoutForm').submit();return false;">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Cart</a>
+        </li>
+      </ul>
+      </ul>
+    </div>
+  </nav>
+    <div class="container mt-5 feed-container">
+      <div class="post mb-5">
+        <div class="container"><img  class="post-img" src="/content/1.jpg"></div>
+        <div class="marker"></div>
+        <div class="profile-line"></div>
+        <div class="purchase-line"></div>  
+        <div class="comment-line"></div>  
+        <div class="stats-line"></div>
+        <div class="container post-content">
+          <div class="profile-container w-100" style="height: 10%;">
+              <div class="row g-0 align-items-center h-100">
+                <div class="col-auto px-lg-4">
+                  <img class="profile-pic" src="/content/2.jpg">
+                </div> 
+                <div class="col">
+                  <a href="#" class="text-white profile-tag" style="text-decoration: none;">@Yeet-Artist-Placeholder</a>
+                </div>
+              </div>
+            </div>
+            <div class="container sale-point text-center">
+              <div class="d-flex flex-column align-items-center">
+                <table class="table table-m table-dark">
+                  <thead>
+                    <tr>   
+                      <th scope="col">Size</th>
+                      <th scope="col">Physical Price</th>
+                      <th scope="col">Digital Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr> 
+                      <td>11" x 17"</td>
+                      <td>$1</td>
+                      <td>$1</td>
+                    </tr>
+                    <tr>
+                      <td>18" x 24"</td>
+                      <td>$2</td>
+                      <td>$3</td>
+                    </tr>
+                    <tr>
+                      <td>24" x 36"</td>
+                      <td>$2</td>
+                      <td>$3</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-light add-to-cart rounded-pill position-absolute end-0" type="button">
+                  <a href="#" class="text-black" style="text-decoration: none;">
+                    ADD TO CART
+                  </a>
+                </button>
+                <div class="position-absolute start-0 size-selector dropdown">
+                  <button class="btn btn-light dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Size Selection
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">11" x 17"</a></li>
+                    <li><a class="dropdown-item" href="#">18" x 24"</a></li>
+                    <li><a class="dropdown-item" href="#">24" x 36"</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment-section overflow-auto">
+          <section style="background-color: #181818;">
+            <div class="container my-5 py-5 text-dark">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-11 col-lg-9 col-xl-7">
+                  <div class="d-flex flex-start mb-4">
+                    <img class="rounded-circle shadow-1-strong me-3"
+                         src="/content/1.jpg" alt="avatar" width="65"
+                         height="65" />
+                    <div class="card w-100">
+                      <div class="card-body p-4"  style="background-color: #121212;">
+                        <div>
+                          <h5 class="text-light">Johny Cash</h5>
+                          <p class="small text-light">3 hours ago</p><!--debatable if i keep this or not-->
+                          <p class="text-light">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut quia ea porro quod repellat esse magnam quaerat obcaecati ratione enim molestias in corrupti quam iusto dolor similique, voluptatem modi alias?
+                          </p>
+          
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                              <a href="#!" class="link-muted me-2 text-light" style="text-decoration: none;"><i class="fas fa-thumbs-up me-1"></i>132</a>
+                              <a href="#!" class="link-muted text-light" style="text-decoration: none;"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-start">
+                    <img class="comment-profile-pic rounded-circle shadow-1-strong me-3"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="65"
+                      height="65" />
+                    <div class="card w-100">
+                      <div class="card-body p-4" style="background-color: #121212;">
+                        <div>
+                          <h5 class="text-light">Mindy Campbell</h5>
+                          <p class="small text-light">5 hours ago</p>
+                          <p  class="text-light">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+                            cumque doloribus dolorum dolor repellat nemo animi at iure autem fuga
+                            cupiditate architecto ut quam provident neque, inventore nisi eos quas?
+                          </p>
+          
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                              <a href="#!" class="link-muted me-2 text-light"  style="text-decoration:none;">158</a>
+                              <a href="#!" class="link-muted text-light" style="text-decoration: none;">13</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+        </div>
+        <div class="comment-box d-flex">
+        <div class="form-floating flex-grow-1">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100%; width: 100%;"></textarea>
+          <label for="floatingTextarea">Comments</label>
+        </div>
+        <div class="btn btn-dark" style="width: 10%; height: 100%;">Send</div>
+      </div>
+    </div>
+    <button class="btn description-button btn-light rounded-2" type="button">
+        <a href="#" class="text-black" style="text-decoration: none;">
+            description
+        </a>
+    </button>
+    <button class="btn description-button btn-light rounded-2 invisible" type="button">
+        <a href="#" class="text-black" style="text-decoration: none;">
+            Comments
+        </a>
+    </button>
+    <div class="description">
+        <h1>hello</h1>
+        <p></p>
+    </div>
+    <div>   
+    </div>
+    </div>  
+    </body> 
+</html>

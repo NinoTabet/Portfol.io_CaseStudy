@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capstone Project</title>
+    <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <link href="/styles/ProfileStyle.css" rel="stylesheet"/>
+    <link href="/styles/NavBarStyle.css" rel="stylesheet"/>
+  </head>
+  <body> 
+    <nav class="navbar navbar-custom navbar-expand navbar-dark nav-colour navbar-fixed-bottom"  style="z-index: 1000;">
+      <div class="container">    
+        <ul class="navbar-nav settings">
+          <li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link me-1 active" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-1" href="#">Direct Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link me-1" href="#">Notifications</a>
+            </li>
+          </li>
+        </ul>
+        <div class="upload-group">
+        <ul class="navbar-nav upload-inner-group">
+          <li class="nav-item">
+            <a class="nav-link me-1" th:href="@{/forYou}">FYP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" th:href="@{/upload}">Upload</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" href="#">Explore</a>
+          </li>
+        </ul>
+        </div>
+        <ul class="navbar-nav cart">
+          <li class="nav-item">
+            <form id="logoutForm" method="post" action="/logout">
+              <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+            </form>
+            <a class="nav-link me-1" href="#" onclick="document.getElementById('logoutForm').submit();return false;">Logout</a> <!--th:href="@{/logout}-->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-1" href="#">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="title">
+      <img class="profile-pic" src="Content/1.jpg">
+      <div class="p-info text-center">
+        <h1 class="user-profile-tag text-light">Placeholder-Profile-Name</h1>
+        <div class="profile-stats d-flex justify-content-center">
+          <h6 class="text-light me-1">300</h6>
+          <h6 class="text-light me-lg-5">Posts</h6>
+          <h6 class="text-light me-1">543,291</h6>
+          <h6 class="text-light">Followers</h6>
+        </div>
+      </div>
+    </div>
+    <div class="profile-seperator"></div>
+    <div class="container-full">
+      <div class="row posts justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a th:href="@{/photoPage}">
+            <img src="Content/1.JPG" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="content/2.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/3.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/4.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/5.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/6.JPG" class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/19.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a th:href="@{/photoPage}">
+            <img src="Content/7.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/8.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/9.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/10.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/11.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/12.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/20.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a th:href="@{/photoPage}">
+            <img src="Content/13.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/14.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/15.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/16.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/17.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/18.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+          <a th:href="@{/photoPage}">
+            <img src="Content/21.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

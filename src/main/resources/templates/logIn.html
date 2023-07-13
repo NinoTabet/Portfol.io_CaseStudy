@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capstone Project</title>
+  <link href="/styles/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/styles/LogInstyle.css" rel="stylesheet"/>
+  <script  src="/scripts/loginjs.js" type="text/javascript"></script>
+
+</head>
+<body>
+  <div class="mx-5">
+    <div th:if="${param.error}">
+      <div class="alert alert-danger">Invalid Email and/or Password.</div>
+    </div>
+    <div class="d-flex justify-content-md-center align-items-center flex-column vh-100">
+      <div class="bg-white rounded-5 p-3">
+        <div class="d-flex justify-content-center">
+          <div>
+            <form method="post" th:action="@{/login}">
+              <div class="form-outline mb-4 mt-2">
+                <input type="text" name="username" value="" id="form3Example1cg" class="form-control form-control-lg"  />
+                <label class="form-label" for="form3Example1cg">Email</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" />
+                <label class="form-label" for="form3Example4cg">Password</label>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit"
+                  class="btn btn-primary rounded-pill me-2 btn-block btn-lg">
+                  <span class="text-white">LOG IN</span></button>
+              </div>
+              <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a th:href="@{/register}"
+                  class="fw-bold text-body"><u>Sign Up here</u></a></p>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--
+    this section needs an @ of the user that posted the photo
+    maybe each time the user loads the page it loads a random 
+    artist from the explore page and loads the 10 most famous photos or something
+  -->
+
+  <div class="background-image" style='background-image: url("/Content/1.jpg"); opacity: 1;'></div>
+  <div class="d-flex justify-content-start align-items-end fixed-bottom p-3 m-3">
+    <button id="copyButton" class="btn btn-light">@indie_shakes</button>
+  </div>
+  <div id="notification" class="alert alert-success position-fixed bottom-0 end-0 m-3 fade" role="alert">
+    Copied to clipboard!
+  </div>
+
+  <!--
+    need to put a group of photos in the background that cycle through the most
+    famous photos that are on the explore page at that moment 
+  -->
+
+</body>
+</html>

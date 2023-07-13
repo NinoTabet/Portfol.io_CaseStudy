@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capstone Project</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+  <link href="/styles/ForYouStyle.css" rel="stylesheet"/>
+  <link href="/styles/NavBarStyle.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-expand navbar-dark nav-colour navbar-fixed-bottom"  style="z-index: 1000;">
+  <div class="container">
+    <ul class="navbar-nav settings">
+      <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link me-1" th:href="@{/profile}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link me-1" href="#">Direct Messages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link me-1" href="#">Notifications</a>
+      </li>
+      </li>
+    </ul>
+    <div class="upload-group">
+      <ul class="navbar-nav upload-inner-group">
+        <li class="nav-item">
+          <a class="nav-link me-1 active">FYP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" th:href="@{/upload}">Upload</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-1" href="#">Explore</a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="navbar-nav cart">
+      <li class="nav-item">
+        <form id="logoutForm" method="post" action="/logout">
+          <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        </form>
+        <a class="nav-link me-1" href="#" onclick="document.getElementById('logoutForm').submit();return false;">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link me-1" href="#">Cart</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div  class="container mt-5 feed-container">
+  <div th:each="post : ${posts}"  class="post mb-5"> <!--This div marks the beginning of a single post-->
+    <div class="container"><img class="post-img" th:src="@{'/posts/' + ${post.photo}}" /></div>
+    <div class="marker"></div>
+    <div class="profile-line"></div>
+    <div class="purchase-line"></div>
+    <div class="comment-line"></div>
+    <div class="stats-line"></div>
+    <p class="text-light" th:text="${post.description}"></p>
+    <div class="container post-content">
+      <div class="profile-container w-100" style="height: 10%;">
+        <div class="row g-0 align-items-center h-100">
+          <div class="col-auto px-lg-4">
+            <img class="profile-pic" src="/Content/2.jpg">
+          </div>
+          <div class="col">
+            <a href="#" class="text-white profile-tag" style="text-decoration: none;">@Yeet-Artist-Placeholder</a>
+          </div>
+        </div>
+      </div>
+      <div class="container sale-point text-center">
+        <div class="d-flex flex-column align-items-center">
+          <table class="table table-m table-dark">
+            <thead>
+            <tr>
+              <th scope="col">Size</th>
+              <th scope="col">Physical Price</th>
+              <th scope="col">Digital Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>11" x 17"</td>
+              <td>$1</td>
+              <td>$1</td>
+            </tr>
+            <tr>
+              <td>18" x 24"</td>
+              <td>$2</td>
+              <td>$3</td>
+            </tr>
+            <tr>
+              <td>24" x 36"</td>
+              <td>$2</td>
+              <td>$3</td>
+            </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-light add-to-cart rounded-pill position-absolute end-0" type="button">
+            <a href="#" class="text-black" style="text-decoration: none;">
+              ADD TO CART
+            </a>
+          </button>
+          <div class="position-absolute start-0 size-selector dropdown">
+            <button class="btn btn-light dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Size Selection
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">11" x 17"</a></li>
+              <li><a class="dropdown-item" href="#">18" x 24"</a></li>
+              <li><a class="dropdown-item" href="#">24" x 36"</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comment-section overflow-auto">
+      <section style="background-color: #181818;">
+        <div class="container my-5 py-5 text-dark">
+          <div th:each="comment : ${post.comments}"  class="row d-flex justify-content-center"> <!--Please check thymeleaf integration if it should be here or on the next comment-->
+            <div class="col-md-11 col-lg-9 col-xl-7">
+              <div class="d-flex flex-start mb-4" > <!--This div contains the profile photo of the user that commented. It will always be the same photo-->
+                <img class="comment-profile-pic rounded-circle shadow-1-strong me-3"
+                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="65"
+                     height="65" />
+                <div class="card w-100">
+                  <div class="card-body p-4"  style="background-color: #121212;">
+                    <div> <!--This marks the beginning of the comment content-->
+                      <h5 class="text-light" >Placeholder Username</h5> <!--This is the name of the user that posted the comment. I would like this to be the username of the user-->
+                      <p th:text="${comment.timestamp}" class="small text-light"></p>
+                      <p th:text="${comment.content}" class="text-light"> class="text-light" ></p><!--This is the comment itself-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="comment-box d-flex">
+      <form class="flex-grow-1 d-flex" th:action="@{/comments}" th:object="${comment}" method="post" style="width: 100%;">
+        <input type="hidden" th:value="${post.id}" name="postId" />
+        <textarea th:field="*{content}" class="form-control flex-grow-1" placeholder="Leave a comment here" id="floatingTextarea" style="width: 90%;"></textarea>
+        <button type="submit" class="btn btn-dark" style="width: 10%;">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
