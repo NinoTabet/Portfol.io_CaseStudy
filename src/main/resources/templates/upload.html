@@ -51,8 +51,10 @@
       </ul>
     </div>
   </nav>
-    <div th:if="${message}" class="alert alert-danger" th:text="${message}"></div>
-    <div  class="container mt-5 feed-container">
+  <div th:if="${failed_message1}" class="alert alert-danger" th:text="${failed_message1}"></div>
+  <div th:if="${failed_message2}" class="alert alert-danger" th:text="${failed_message2}"></div>
+
+  <div  class="container mt-5 feed-container">
       <form th:action="@{/api/posts}" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="photo" class="form-label text-white">Photo</label>

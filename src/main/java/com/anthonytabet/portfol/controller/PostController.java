@@ -20,16 +20,15 @@ public class PostController {
     @PostMapping("/posts")
     public String createPost(@RequestParam("photo") MultipartFile photo, @RequestParam("description") String description, RedirectAttributes redirectAttributes) {
         if (photo.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "No photo attached");
+            redirectAttributes.addFlashAttribute("failed_message1", "No photo attached");
             return "redirect:/upload";
         }
         try {
             postService.createPost(photo, description);
-            redirectAttributes.addFlashAttribute("message", "Post created successfully!");
             return "redirect:/forYou";
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("message", "Could not create post");
-            return "/upload";
+            redirectAttributes.addFlashAttribute("failed_message2", "Could not create post. Please try again.");
+            return "redirect:/upload";
         }
     }
 
