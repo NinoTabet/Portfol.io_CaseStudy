@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     var images = [
-    '/Content/2.jpg',
-    '/Content/3.jpg',
-    '/Content/4.jpg',
-    '/Content/5.jpg',
-    '/Content/6.jpg',
-    '/Content/7.jpg',
-    '/Content/8.jpg',
-    '/Content/9.jpg',
-    '/Content/10.jpg',
-    '/Content/1.jpg',
+    '/content/2.jpg',
+    '/content/3.jpg',
+    '/content/4.jpg',
+    '/content/5.jpg',
+    '/content/6.jpg',
+    '/content/7.jpg',
+    '/content/8.jpg',
+    '/content/9.jpg',
+    '/content/10.jpg',
+    '/content/1.jpg',
       // Add more image URLs as needed
     ];
 
