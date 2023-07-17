@@ -1,9 +1,9 @@
 package com.anthonytabet.portfol.service;
 
-import org.springframework.stereotype.Service;
+import com.anthonytabet.portfol.model.Post;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
 public interface PostService {
     void createPost(MultipartFile photo, String description);
+    Post findById(Long id);
 }

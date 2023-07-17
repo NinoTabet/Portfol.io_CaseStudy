@@ -28,6 +28,4 @@ public class Post {
 
     @Column(name = "photo")
     private String photo;
-
-    private int likes;
 }

@@ -6,32 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
-
-//comment model for creating comment entity in database
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name="comments")
-public class Comment {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table (name="likes")
+public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content;
-
-    private LocalDateTime timestamp;
+    private Long likes;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @PrePersist
-    protected void onCreate() {
-        timestamp = LocalDateTime.now();
-    }
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "users_id")
+    private User user;
 }

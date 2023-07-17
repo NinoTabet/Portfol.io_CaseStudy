@@ -9,6 +9,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/scripts/likesJS.js"></script>
   <link href="/styles/ForYouStyle.css" rel="stylesheet"/>
   <link href="/styles/NavBarStyle.css" rel="stylesheet"/>
 </head>
@@ -145,6 +146,10 @@
         </div>
       </section>
     </div>
+    <div class="like-button-area">
+      <button class="like-button btn btn-primary" th:attr="'data-post-id=' + ${post.id} + ',data-user-id=' + ${user.id} + ',onclick=toggleLike(' + ${post.id} + ',' + ${user.id} + ')'">like count</button>
+    </div>
+
     <div class="comment-box d-flex">
       <form class="flex-grow-1 d-flex" th:action="@{/comments}" th:object="${comment}" method="post" style="width: 100%;">
         <input type="hidden" th:value="${post.id}" name="postId" />

@@ -6,18 +6,18 @@ import com.anthonytabet.portfol.service.PostService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Instant;
+import java.util.Optional;
 
-//PostServiceImpl is used for creating new posts
 @Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
     private PostRepository postRepository;
-
 
     @Override
     public void createPost(MultipartFile photo, String description) {
@@ -45,4 +45,13 @@ public class PostServiceImpl implements PostService {
         }
     }
 
+    @Override
+    public Post findById(Long id) { // Method added
+        Optional<Post> optionalPost = postRepository.findById(id);
+        if (optionalPost.isPresent()) {
+            return optionalPost.get();
+        } else {
+            throw new RuntimeException("Post not found with id: " + id);
+        }
+    }
 }
